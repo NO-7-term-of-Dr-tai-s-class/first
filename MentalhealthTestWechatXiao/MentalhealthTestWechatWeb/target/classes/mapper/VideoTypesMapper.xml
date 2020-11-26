@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+				
+<mapper namespace="com.MentalhealthTestWechatWeb.mapper.VideoTypesMapper">
+	
+	<select id="findAll" resultMap="VideoTypes">
+		select * from videostypes
+	</select>
+	
+  	<select id="findVideoTypesById" parameterType="Integer" resultMap="VideoTypes">
+		select * from videostypes where Vtid=#{0} 
+	</select>
+	
+	<select id="checkVideoTypes" parameterType="String" resultMap="VideoTypes">
+		select * from videostypes where Vtname = #{Vtname} 
+	</select>
+	 
+	<delete id="deleteVideoTypesById" parameterType="Integer">
+    	delete from videostypes where Vtid = #{0}
+  	</delete>
+  
+  <update id="updateVideoTypesInfo" parameterType="com.MentalhealthTestWechatWeb.entity.VideoTypesBean">
+    update videostypes
+    set Vtname = #{Vtname,jdbcType=VARCHAR}
+      
+    where Vtid = #{Vtid,jdbcType=INTEGER }
+  </update>
+  
+  <insert id="insertVideoTypesInfo" parameterType="com.MentalhealthTestWechatWeb.entity.VideoTypesBean">
+    insert into videostypes (
+    	Vtname
+      )
+    values (
+        #{Vtname,jdbcType=VARCHAR}
+         )
+  </insert>
+
+	<resultMap type="com.MentalhealthTestWechatWeb.entity.VideoTypesBean" id="VideoTypes">
+		<result column="Vtid" jdbcType="INTEGER" property="Vtid" />
+   	 	<result column="Vtname" jdbcType="VARCHAR" property="Vtname" />
+	</resultMap>
+
+</mapper>
+				

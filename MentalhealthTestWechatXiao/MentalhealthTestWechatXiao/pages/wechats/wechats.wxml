@@ -1,0 +1,33 @@
+<wxs src="../../wxs/utils.wxs" module="myutil" />
+
+<view style="text-align:center;margin-top:20px; height:60px; background:#CCE8CF">
+    <button type="primary" size="mini" style='margin-left:5rpx;margin-top:15px;' bindtap='addfayan' >发言</button>
+</view  >
+
+<view style="height:2px; width:100%; background:#eee; margin-top:15px;"></view>
+  
+<view style="background:#CCE8CF">
+
+      <view style="margin-left:30px;"  wx:for="{{items}}" wx:for-item='item'>
+
+        <text decode="{{true}}" style='color:red' class="ttext">发言者:&nbsp;</text>
+        <text class="textinfo">{{item.unicheng}}</text>
+
+        <br/>
+        <text decode="{{true}}" class="ttext">发言时间:&nbsp;</text>
+        <text class="textinfo">{{myutil.formatDate(item.wdate.time)}}</text>
+
+          <br/>
+        <text decode="{{true}}"  class="ttext">内容:&nbsp;</text>
+        <text class="textinfo">{{item.wcont}}</text>
+
+        <view style="height:2px; width:100%; background:#eee; margin-top:15px;"></view>
+
+       </view>
+</view>
+
+
+
+<modal hidden="{{hiddenModal2}}" title="平台发言" confirm-text="提交" cancel-text="取消" bindconfirm="model2confirm" bindcancel="model2cancel">
+    <input placeholder='请输入内容' bindinput='input'/>
+</modal>

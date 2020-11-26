@@ -1,0 +1,20 @@
+<view class="container">
+
+  <view style="margin-top:-60px; height:600px;" >
+      <button type="primary" style=' width:320px;' bindtap='ziwozhiyuyindaobtn' size="default">自我治愈系列</button>
+
+      <button type="primary" style='  width:320px; margin-top:50px;' bindtap='shenaizijiyindaobtn' size="default">深爱着美好的自己</button>
+
+
+      <button type="primary" style='  width:320px; margin-top:50px;' bindtap='caoyuanyindaobtn' size="default">草原冥想治愈</button>
+
+    <button type="primary" style='  width:320px; margin-top:50px;' bindtap='goIndex' size="default">返回首页</button>
+
+  </view>
+
+
+    <image class="bgImg" src="../../static/images/backgroud.jpg" style="width:160px; height:160px; margin-top:40px;"></image>
+
+ 
+
+</view>

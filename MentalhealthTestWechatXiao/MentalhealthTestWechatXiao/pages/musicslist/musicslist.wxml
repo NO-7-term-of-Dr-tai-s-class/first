@@ -1,0 +1,29 @@
+  
+<view class='page_content'>
+
+      <view class="pageList" wx:for="{{list}}" wx:for-item='item'>
+
+      <image src="{{imghost}}{{item.mimg}}" class="slide-image" mode="aspectFill"/> 
+
+     <view class='right_content' data-id="{{item.mpath}}" bindtap="playMusic" >
+
+        <text decode="{{true}}" style='color:red' class="ttext">名称:&nbsp;</text>
+        <text class="textinfo">{{item.mtitle}}</text>
+
+        <br/>
+        <text decode="{{true}}" class="ttext">演唱者:&nbsp;</text>
+        <text class="textinfo">{{item.msinger}}</text>
+
+          <br/>
+        <text decode="{{true}}"  class="ttext">类型:&nbsp;</text>
+        <text class="textinfo">{{item.mtname}}</text>
+
+      </view>
+  </view>
+ 
+
+
+</view>
+
+
+

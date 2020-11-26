@@ -1,0 +1,2 @@
+<button type="primary" style='margin-left:35px; float:center; width:120px;' open-type="contact" size="default">联系客服</button>
+<button type="primary" style='margin-left:35px; float:center; width:120px;' open-type="feedback" size="default">意见反馈</button>

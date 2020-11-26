@@ -1,0 +1,47 @@
+.radio-group {
+    margin-top: 20px;
+    background-color: #eee;
+}
+.radio-group label {
+    display: block;
+    height: 86rpx;
+    line-height: 86rpx;
+    font-size: 32rpx;
+    border-bottom: 1rpx solid #e2e2e2;
+    box-sizing: border-box;
+    padding: 0 20rpx;
+}
+
+radio {
+    width: 38rpx;
+}
+
+/* 单选框未选中 */
+radio .wx-radio-input {
+    width: 24rpx;
+    height: 24rpx;
+    border-radius: 50%;
+    
+}
+
+
+/* 单选框选中后对勾样式 */
+radio .wx-radio-input.wx-radio-input-checked::before{
+    border-radius: 50%;
+    width: 44rpx;
+    height: 44rpx;
+    line-height: 44rpx;
+    text-align: center;
+    font-size: 26rpx;   
+    color:#fff;
+    background-color: #da2728;
+    border-color: #da2728;
+}
+
+.nextbtnshow{
+  display: none;
+}
+
+.nextbtnhide{
+  display: block;
+}

@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- 以下实现对数据库的增删改查 -->				
+<mapper namespace="com.MentalhealthTestWechatWeb.mapper.UserMapper">
+	
+	<select id="login" parameterType="com.MentalhealthTestWechatWeb.entity.UserBean" resultMap="user">
+		select * from users where Utel=#{Utel} and Upwd=#{Upwd}
+	</select>
+	
+	<select id="findAll" resultMap="user">
+		select * from users
+	</select>
+	 
+	<select id="findUsersById" parameterType="Integer" resultMap="user">
+		select * from users 
+		where Uid = #{Uid,jdbcType=INTEGER }
+	</select>
+	
+	<select id="findUsersByTel" parameterType="com.MentalhealthTestWechatWeb.entity.UserBean" resultMap="user">
+		select * from users
+		where Utel = #{Utel,jdbcType=VARCHAR} 
+	</select>
+	
+	<select id="CheckUser" parameterType="com.MentalhealthTestWechatWeb.entity.UserBean"  resultMap="user">
+		select * from users where Utel=#{Utel} 
+	</select>
+	
+	<select id="checkUserInfoForXiao" parameterType="String" resultMap="user">
+		select * from users where Uopenid = #{Uopenid,jdbcType=VARCHAR}
+	</select>
+	
+	<select id="findUserInfoForXiao" parameterType="String" resultMap="user">
+		select * from users where Uopenid = #{Uopenid,jdbcType=VARCHAR}
+	</select>
+	
+	<delete id="deleteUsersById" parameterType="Integer">
+    	delete from users where Uid = #{0}
+  	</delete>
+
+	 <update id="updateUserInfo" parameterType="com.MentalhealthTestWechatWeb.entity.UserBean">
+    update users
+    set Uname = #{Uname,jdbcType=VARCHAR}, 
+        Upwd = #{Upwd,jdbcType=VARCHAR}, 
+        Utel = #{Utel,jdbcType=VARCHAR},
+        Usex = #{Usex,jdbcType=VARCHAR},
+        Uage = #{Uage,jdbcType=INTEGER }
+      
+    where Uid = #{Uid,jdbcType=INTEGER }
+  </update>
+  
+   <insert id="insertUser" parameterType="com.MentalhealthTestWechatWeb.entity.UserBean">
+    insert into users (
+    	Unicheng,
+    	Uimg,
+    	Uopenid,
+    	Udate
+    	
+      )
+    values (
+        #{Unicheng,jdbcType=VARCHAR},
+        #{Uimg,jdbcType=VARCHAR},
+        #{Uopenid,jdbcType=VARCHAR},
+        #{Udate,jdbcType=TIMESTAMP}
+         )
+  </insert>
+
+  <resultMap type="com.MentalhealthTestWechatWeb.entity.UserBean" id="user">
+		<result column="Uid" jdbcType="INTEGER" property="Uid" />
+   	 	<result column="Uname" jdbcType="VARCHAR" property="Uname" />
+   	 	<result column="Upwd" jdbcType="VARCHAR" property="Upwd" />
+    	<result column="Utel" jdbcType="VARCHAR" property="Utel" />
+    	<result column="Udate" jdbcType="TIMESTAMP" property="Udate" />
+    	<result column="Usex" jdbcType="VARCHAR" property="Usex" />
+    	<result column="Uage" jdbcType="INTEGER" property="Uage" />
+    	
+    	<result column="Unicheng" jdbcType="VARCHAR" property="Unicheng" />
+    	<result column="Uimg" jdbcType="VARCHAR" property="Uimg" />
+    	<result column="Uopenid" jdbcType="VARCHAR" property="Uopenid" />
+    	
+    	
+  </resultMap>
+
+</mapper>
+				

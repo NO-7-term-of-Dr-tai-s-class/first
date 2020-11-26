@@ -1,0 +1,26 @@
+<import src="../../wxParse/wxParse.wxml"/>
+<wxs src="../../wxs/utils.wxs" module="myutil" />
+
+<view class='contTitle'>
+ <text decode="{{true}}" class="ttext">&nbsp;视频名称:&nbsp;</text>
+  <text>{{list.vtitle}}</text>
+</view>
+
+<view class='contStyle'>
+ <text decode="{{true}}" class="ttext">&nbsp;演员:&nbsp;</text>
+   <text>{{list.vperformers}}</text>
+</view>
+
+<view class='contStyle'>
+ <text decode="{{true}}" class="ttext">&nbsp;得分:&nbsp;</text>
+   <text>{{list.vscores}}</text>
+</view>
+
+<view class='contStyle'>
+ <text decode="{{true}}" class="ttext">&nbsp;简介:&nbsp;</text>
+   <text>{{list.vjianjie}}</text>
+</view>
+
+<view class='contStyle'>
+  <video src="{{imghost}}{{list.vpath}}" ></video>
+</view>

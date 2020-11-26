@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+				
+<mapper namespace="com.MentalhealthTestWechatWeb.mapper.SelftestsMapper">
+	
+	<select id="findAll" resultMap="Selftests">
+		select * from selftests
+	</select>
+	
+	<select id="findIndexSelftests" parameterType="Integer" resultMap="Selftests">
+		select * from selftests where Sindex = #{0}
+	</select>
+ 
+	<resultMap type="com.MentalhealthTestWechatWeb.entity.SelftestsBean" id="Selftests">
+		<result column="Stid" jdbcType="INTEGER" property="Stid" />
+   	 	<result column="Sttitle" jdbcType="VARCHAR" property="Sttitle" />
+    	<result column="Stfirstoption" jdbcType="VARCHAR" property="Stfirstoption" />
+    	<result column="Stfirstnum" jdbcType="INTEGER" property="Stfirstnum" />
+    	<result column="Stsecondoption" jdbcType="VARCHAR" property="Stsecondoption" />
+    	<result column="Stsecondnum" jdbcType="INTEGER" property="Stsecondnum" />
+    	<result column="Stthreeoption" jdbcType="VARCHAR" property="Stthreeoption" />
+    	<result column="Stthreenum" jdbcType="INTEGER" property="Stthreenum" />
+    	<result column="Stfouroption" jdbcType="VARCHAR" property="Stfouroption" />
+    	<result column="Stfournum" jdbcType="INTEGER" property="Stfournum" />
+    	
+    	<result column="Sindex" jdbcType="INTEGER" property="Sindex" />
+    	
+	</resultMap>
+
+</mapper>
+				

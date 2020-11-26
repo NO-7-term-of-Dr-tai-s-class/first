@@ -1,0 +1,9 @@
+{
+
+"navigationBarTitleText": "个人中心",
+"usingComponents": {
+  "br": "../../components/br/br",
+  "header": "../../components/header/header"
+}
+
+}

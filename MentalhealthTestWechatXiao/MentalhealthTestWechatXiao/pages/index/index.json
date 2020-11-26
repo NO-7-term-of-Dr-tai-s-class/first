@@ -1,0 +1,9 @@
+{
+
+"navigationBarTitleText": "测试与治愈",
+"usingComponents": {
+  "br": "../../components/br/br",
+  "header": "../../components/header/header"
+}
+
+}

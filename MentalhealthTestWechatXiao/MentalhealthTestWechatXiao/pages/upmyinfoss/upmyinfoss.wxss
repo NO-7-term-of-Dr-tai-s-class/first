@@ -1,0 +1,66 @@
+.pageList{
+  margin-top: 10px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  border-color: #000
+}
+
+.right_content{
+  width: 90%;
+  margin-top: 15px;
+}
+
+.ttext{
+  margin-left: 5px;
+  font-size: 14px;
+}
+
+.textinfo{
+  font-size: 14px;
+  overflow:hidden; 
+  text-overflow:ellipsis;
+}
+
+.nav{
+    background-color: #fff;
+}
+.top{
+  width: 250rpx;
+  height: 250rpx;
+  margin: 0 auto;
+}
+.nickname{
+  margin-bottom: 10rpx;
+  text-align: center;
+}
+.item{
+  height: 70rpx;
+  background-color: #fff;
+  margin: 20rpx;
+  border-radius: 20rpx;
+  text-align: center
+}
+.left{
+  display: flex;
+  justify-content: flex-start;
+  flex-grow: 1;
+  float: left
+}
+.right{
+  display: flex;
+  justify-content: flex-end;
+  flex-grow: 1;
+  color: #ccc;
+  margin-right: 20rpx;
+}
+
+.inform-btn{
+  margin-top: 25px;
+}
+
+.informinput{
+  background: #D4E5D1;
+  margin-left: 100px;
+   height: 50rpx;
+}

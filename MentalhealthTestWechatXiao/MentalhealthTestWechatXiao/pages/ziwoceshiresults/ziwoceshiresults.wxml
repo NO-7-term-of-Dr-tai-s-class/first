@@ -1,0 +1,42 @@
+<view class="container">
+
+<view style="text-align:center;margin-top:-50px;">
+    心理健康自测结果
+</view  >
+
+<view style="text-align:center;margin-top:-40px;">
+   <label>{{items.ssscore}}</label>
+</view  >
+
+<view wx:if="{{items.ssscore == 10}}" style="text-align:center;margin-top:-30px;">
+    你很健康
+</view  >
+
+<view wx:elif="{{items.ssscore > 10 && items.ssscore <= 15}}" style="text-align:center;margin-top:-30px;">
+    你有轻度情绪不良，要注意调节；
+</view  >
+
+<view wx:elif="{{items.ssscore > 15 && items.ssscore <= 25}}" style="text-align:center;margin-top:-30px;">
+    表明你的心理不健康，要去看心理医生了；
+</view >
+
+<view wx:else style="text-align:center;margin-top:-30px;">
+    说明心理已经比较严重不健康了，必须看心理医生。
+</view >
+
+  <view style="margin-top:-20px;" >
+      <button type="primary" style=' width:220px;  ' bindtap='onShareAppMessage'  open-type="share" size="default">分享测试结果</button>
+
+      <button type="primary" style='  width:220px; margin-top:50px;' bindtap='goIndex' size="default">返回首页</button>
+  </view>
+
+
+<view style="background:#000; margin-top:10px; font-size:14px; color:white;margin-left:9px; margin-right:9px;"> 
+   <label>1.总分10分：你很健康；</label><br/>
+   <label>2.总分10分—15分，你有轻度情绪不良，要注意调节；</label><br/>
+   <label>3.总分大于15分者，表明你的心理不健康，要去看心理医生了；</label><br/>
+   <label>4.当大于25分时，说明心理已经比较严重不健康了，必须看心理医生。</label>
+</view>
+ 
+
+</view>

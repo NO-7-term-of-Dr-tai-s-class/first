@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+				
+<mapper namespace="com.MentalhealthTestWechatWeb.mapper.ProfessionalselftestsMapper">
+	
+	<select id="findAll" resultMap="Professionalselftests">
+		select * from Professionalselftests
+	</select>
+	
+	<select id="findIndexProfessionalselftests" parameterType="Integer" resultMap="Professionalselftests">
+		select * from Professionalselftests where Psindex = #{0}
+	</select>
+ 
+	<resultMap type="com.MentalhealthTestWechatWeb.entity.ProfessionalselftestsBean" id="Professionalselftests">
+		<result column="Psid" jdbcType="INTEGER" property="Psid" />
+   	 	<result column="Pstitle" jdbcType="VARCHAR" property="Pstitle" />
+    	<result column="Psfirtoptions" jdbcType="VARCHAR" property="Psfirtoptions" />
+    	<result column="Psfirstnum" jdbcType="INTEGER" property="Psfirstnum" />
+    	<result column="Pssecondoptions" jdbcType="VARCHAR" property="Pssecondoptions" />
+    	<result column="Pssecondnum" jdbcType="INTEGER" property="Pssecondnum" />
+    	<result column="Psthreeoptions" jdbcType="VARCHAR" property="Psthreeoptions" />
+    	<result column="Psthreenum" jdbcType="INTEGER" property="Psthreenum" />
+    	<result column="Psfouroptions" jdbcType="VARCHAR" property="Psfouroptions" />
+    	<result column="Psfournum" jdbcType="INTEGER" property="Psfournum" />
+    	
+    	<result column="Psindex" jdbcType="INTEGER" property="Psindex" />
+    	
+	</resultMap>
+
+</mapper>
+				

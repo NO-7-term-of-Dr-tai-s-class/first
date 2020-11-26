@@ -1,0 +1,28 @@
+<view class="container">
+
+  <view style="height:50px; margin-top:-40px;">
+      <button type="primary" style=' width:120px; float:left ' bindtap='ziwoceshibtn' size="default">自我测试</button>
+
+      <button type="primary" style='margin-left:35px; float:right; width:120px;' bindtap='yindaorushuibtn' size="default">平台推荐音乐</button>
+  </view>
+ 
+ 
+<view style="height:50px; margin-top:-60px;">
+      <button type="primary" style=' width:120px; float:left ' bindtap='manhuaanddonghuayindaobtn' size="default">漫画</button>
+
+      <button type="primary" style='margin-left:35px; float:right; width:120px;' bindtap='musiczhiliaobtn' size="default">倾听音乐</button>
+  </view>
+
+
+    <image class="bgImg" src="../../static/images/tim4g.jpg" style="width:160px; height:160px; margin-top:-60px;"></image>
+
+
+<view style="height:50px; margin-top:-60px;">
+      <button type="primary" style=' width:120px; float:left ' bindtap='videolistbtn' size="default">电影推荐</button>
+
+      <button type="primary" style='margin-left:35px; float:right; width:120px;' bindtap='wechatbtn' size="default">交流广场</button>
+  </view>
+  
+ 
+
+</view>

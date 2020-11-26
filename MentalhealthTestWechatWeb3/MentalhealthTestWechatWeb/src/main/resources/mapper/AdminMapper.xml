@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+				
+<mapper namespace="com.MentalhealthTestWechatWeb.mapper.AdminMapper">
+	
+	<select id="login" parameterType="com.MentalhealthTestWechatWeb.entity.AdminBean" resultMap="admin">
+		select * from admin where Atel=#{Atel} and Apwd=#{Apwd}
+	</select>
+	
+	<select id="findAll" resultMap="admin">
+		select * from admin
+	</select>
+	 
+  	<select id="findAdminById" parameterType="Integer" resultMap="admin">
+		select * from admin where Aid=#{0} 
+	</select>
+	
+	<select id="findAdminListsById" parameterType="Integer" resultMap="admin">
+		select * from admin where Aid=#{0} 
+	</select>
+  
+  <update id="updateAdminInfo" parameterType="com.MentalhealthTestWechatWeb.entity.AdminBean">
+    update admin
+    set Aname = #{Aname,jdbcType=VARCHAR},
+      Apwd = #{Apwd,jdbcType=VARCHAR},
+      Atel = #{Atel,jdbcType=VARCHAR}
+    where Aid = #{Aid,jdbcType=INTEGER }
+  </update>
+
+	<resultMap type="com.MentalhealthTestWechatWeb.entity.AdminBean" id="admin">
+		<result column="Aid" jdbcType="INTEGER" property="Aid" />
+   	 	<result column="Aname" jdbcType="VARCHAR" property="Aname" />
+    	<result column="Apwd" jdbcType="VARCHAR" property="Apwd" />
+    	<result column="Atel" jdbcType="VARCHAR" property="Atel" />
+	</resultMap>
+
+</mapper>
+				

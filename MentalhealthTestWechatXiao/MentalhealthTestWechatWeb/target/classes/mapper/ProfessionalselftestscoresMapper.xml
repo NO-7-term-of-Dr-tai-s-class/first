@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+				
+<mapper namespace="com.MentalhealthTestWechatWeb.mapper.ProfessionalselftestscoresMapper">
+	
+	<select id="findAll" resultMap="Professionalselftestscores">
+		select sc.*,u.Uname from professionalselftestscore as sc 
+		left join users as u on u.Uid = sc.Psuid
+	</select>
+	
+  	<select id="findProfessionalselftestscoresById" parameterType="Integer" resultMap="Professionalselftestscores">
+		select * from professionalselftestscore where Psuid=#{0} 
+	</select>
+	
+	<select id="checkProfessionalselftestscoresById" parameterType="Integer" resultMap="Professionalselftestscores">
+		select * from professionalselftestscore where Psuid=#{0} 
+	</select>
+	 
+	<delete id="deleteProfessionalselftestscoresById" parameterType="Integer">
+    	delete from professionalselftestscore where Psid = #{0}
+  	</delete>
+  
+  <update id="updateProfessionalselftestscoresInfo" parameterType="com.MentalhealthTestWechatWeb.entity.ProfessionalselftestscoresBean">
+    update professionalselftestscore
+    set Psscore = #{Psscore,jdbcType=INTEGER}
+      
+    where Psuid = #{Psuid,jdbcType=INTEGER }
+  </update>
+  
+  <insert id="insertProfessionalselftestscoresInfo" parameterType="com.MentalhealthTestWechatWeb.entity.ProfessionalselftestscoresBean">
+    insert into professionalselftestscore (
+    	Psuid,
+    	Psscore,
+    	Psdate
+      )
+    values (
+        #{Psuid,jdbcType=INTEGER},
+        #{Psscore,jdbcType=INTEGER},
+        #{Psdate,jdbcType=TIMESTAMP}
+         )
+  </insert>
+
+	<resultMap type="com.MentalhealthTestWechatWeb.entity.ProfessionalselftestscoresBean" id="Professionalselftestscores">
+		<result column="Psid" jdbcType="INTEGER" property="Psid" />
+		<result column="Psuid" jdbcType="INTEGER" property="Psuid" />
+		<result column="Psscore" jdbcType="INTEGER" property="Psscore" />
+		<result column="Psdate" jdbcType="TIMESTAMP" property="Psdate" />
+		
+   	 	<result column="Uname" jdbcType="VARCHAR" property="Uname" />
+	</resultMap>
+
+</mapper>
+				

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+				
+<mapper namespace="com.MentalhealthTestWechatWeb.mapper.MusicTypesMapper">
+	
+	<select id="findAll" resultMap="MusicTypes">
+		select * from musictypes
+	</select>
+	
+  	<select id="findMusicTypesById" parameterType="Integer" resultMap="MusicTypes">
+		select * from musictypes where Mtid=#{0} 
+	</select>
+	
+	<select id="checkMusicTypes" parameterType="String" resultMap="MusicTypes">
+		select * from musictypes where Mtname = #{Mtname} 
+	</select> 
+	
+	<delete id="deleteMusicTypesById" parameterType="Integer">
+    	delete from musictypes where Mtid = #{0}
+  	</delete>
+  
+  <update id="updateMusicTypesInfo" parameterType="com.MentalhealthTestWechatWeb.entity.MusicTypesBean">
+    update musictypes
+    set Mtname = #{Mtname,jdbcType=VARCHAR}
+      
+    where Mtid = #{Mtid,jdbcType=INTEGER }
+  </update>
+  
+  <insert id="insertMusicTypesInfo" parameterType="com.MentalhealthTestWechatWeb.entity.MusicTypesBean">
+    insert into musictypes (
+    	Mtname
+      )
+    values (
+        #{Mtname,jdbcType=VARCHAR}
+         )
+  </insert>
+
+	<resultMap type="com.MentalhealthTestWechatWeb.entity.MusicTypesBean" id="MusicTypes">
+		<result column="Mtid" jdbcType="INTEGER" property="Mtid" />
+   	 	<result column="Mtname" jdbcType="VARCHAR" property="Mtname" />
+	</resultMap>
+
+</mapper>
+				

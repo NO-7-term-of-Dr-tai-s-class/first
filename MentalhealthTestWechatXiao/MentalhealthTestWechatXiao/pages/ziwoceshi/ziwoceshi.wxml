@@ -1,0 +1,16 @@
+<view class="container">
+
+<view style="background:#000; margin-top:-80px; font-size:14px; color:white;margin-left:9px; margin-right:9px;"> 不管你的心理健康怎样，都来亲自测一下吧。</view>
+
+  <view style="margin-top:-30px;" >
+      <button type="primary" style=' width:220px;  ' bindtap='selftestceshibtn' size="default">普通自测表</button>
+
+      <button type="primary" style='  width:220px; margin-top:50px;' bindtap='professionalselftestsbtn' size="default">专业版自测表</button>
+  </view>
+
+
+    <image class="bgImg" src="../../static/images/backgroud.jpg" style="width:160px; height:160px; margin-top:10px;"></image>
+
+ 
+
+</view>

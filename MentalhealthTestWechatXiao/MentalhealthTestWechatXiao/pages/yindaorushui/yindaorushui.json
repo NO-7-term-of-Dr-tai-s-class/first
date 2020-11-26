@@ -1,0 +1,9 @@
+{
+
+"navigationBarTitleText": "平台音乐推荐",
+"usingComponents": {
+  "br": "../../components/br/br",
+  "header": "../../components/header/header"
+}
+
+}

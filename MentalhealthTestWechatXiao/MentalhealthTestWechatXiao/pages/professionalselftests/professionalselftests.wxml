@@ -1,0 +1,27 @@
+ <view class="pageList">
+
+  <view style="text-align:center;" >{{items.pstitle}}</view>
+
+    <radio-group class="radio-group" bindchange="radioChange">
+        <label wx:key="{{index}}" style="height:325px;">
+            <radio checked="{{checked}}" value="{{items.psfirstnum}}" />{{items.psfirtoptions}}
+            <br/> 
+            <radio checked="{{checked}}" value="{{items.pssecondnum}}" />{{items.pssecondoptions}}
+             <br/>
+            <radio checked="{{checked}}" value="{{items.psthreenum}}" />{{items.psthreeoptions}}
+              <br/>
+            <radio checked="{{checked}}" value="{{items.psfournum}}" />{{items.psfouroptions}}
+      
+ 
+        </label>
+    </radio-group>
+
+
+ <view wx:if="{{showView}}">
+      <button type="primary" style='  width:220px; margin-top:50px;' bindtap='nextselftestbtn' size="default">下一题</button>
+ </view>
+
+ <view wx:if="{{showView2}}">
+    <button type="primary" style='  width:220px; margin-top:50px;' bindtap='commitselftestbtn' size="default">完成</button>
+  </view>
+</view>

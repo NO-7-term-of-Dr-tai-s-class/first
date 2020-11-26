@@ -1,0 +1,66 @@
+{
+  "pages": [
+    "pages/login/login",
+    "pages/mycenter/mycenter",
+    "pages/myinfoss/myinfoss",
+    "pages/upmyinfoss/upmyinfoss", 
+    "pages/index/index",
+    "pages/ziwoceshi/ziwoceshi",
+    "pages/selftestceshi/selftestceshi",
+    "pages/ziwoceshiresults/ziwoceshiresults",
+    "pages/professionalselftests/professionalselftests",
+    "pages/professionalselftestsresults/professionalselftestsresults",
+    "pages/musicslist/musicslist",
+    "pages/yindaorushui/yindaorushui",
+    "pages/videoslist/videoslist",
+    "pages/videodetails/videodetails",
+    "pages/manhuadetails/manhuadetails",
+    "pages/donghuadetails/donghuadetails",
+    "pages/manhuadonghualists/manhuadonghualists",
+    "pages/manhuadonghualists2/manhuadonghualists2",
+    "pages/wechats/wechats",
+    "pages/kefu/kefu"
+    
+  ],
+  "requiredBackgroundModes":[
+    "audio"
+  ],
+  "window": { 
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "WeChat",
+    "navigationBarTextStyle": "black"
+  },
+  "tabBar": {
+    "color": "#666",
+    "selectedColor": "#f60",
+    "backgroundColor": "#eee",
+    "borderStyle": "white",
+    "position": "bottom",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "首页",
+        "iconPath": "static/images/c1.png",
+        "selectedIconPath": "static/images/c2.png"
+      },
+      {
+        "pagePath": "pages/mycenter/mycenter",
+        "text": "我的",
+        "iconPath": "static/images/user1.png",
+        "selectedIconPath": "static/images/user2.png"
+      },
+      {
+        "pagePath": "pages/kefu/kefu",
+        "text": "客服中心",
+        "iconPath": "static/images/user1.png",
+        "selectedIconPath": "static/images/user2.png"
+      }
+     
+      
+
+    ]
+  },
+  "sitemapLocation": "sitemap.json"
+  
+}

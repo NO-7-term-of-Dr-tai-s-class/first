@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+				
+<mapper namespace="com.MentalhealthTestWechatWeb.mapper.MusicsMapper">
+	
+	<select id="findAll" resultMap="Musics">
+		select v.*,vt.Mtname from Musics as v
+		left join musictypes as vt on vt.Mtid = v.Mtid
+	</select>
+	
+  	<select id="findMusicsById" parameterType="Integer" resultMap="Musics">
+		select v.*,vt.Mtname from Musics as v
+		left join musictypes as vt on vt.Mtid = v.Mtid
+		where v.Mid=#{0} 
+	</select>
+	 
+	<select id="checkMusics" parameterType="com.MentalhealthTestWechatWeb.entity.MusicsBean" resultMap="Musics">
+		select * from Musics where Mtitle=#{Mtitle} and Mtid=#{Mtid}
+	</select>
+	
+	<select id="findMusicsListsByMohuTitle" parameterType="String" resultMap="Musics">
+		select v.*,vt.Mtname from Musics as v
+		left join musictypes as vt on vt.Mtid = v.Mtid
+		where v.Mtitle like #{Mtitle} 
+	</select>
+	
+	<select id="findMusicsListsByMtid" parameterType="Integer" resultMap="Musics">
+		select v.*,vt.Mtname from Musics as v
+		left join musictypes as vt on vt.Mtid = v.Mtid
+		 where v.Mtid=#{0} 
+	</select>
+	
+	<delete id="deleteMusicsById" parameterType="Integer">
+    	delete from musics where Mid = #{0}
+  	</delete>
+  
+  <update id="updateMusicsInfo" parameterType="com.MentalhealthTestWechatWeb.entity.MusicsBean">
+    update Musics
+    set Mtitle = #{Mtitle,jdbcType=VARCHAR},
+      Msinger = #{Msinger,jdbcType=VARCHAR},
+      Mtid = #{Mtid,jdbcType=INTEGER}
+      
+      <if test='Mimg != null and Mimg !=""'>
+      	,Mimg = #{Mimg,jdbcType=VARCHAR}
+      </if>
+      
+      <if test='Mpath != null and Mpath !=""'>
+      	,Mpath = #{Mpath,jdbcType=VARCHAR}
+      </if>
+      
+    where Mid = #{Mid,jdbcType=INTEGER }
+  </update>
+  
+  <insert id="insertMusicsInfo" parameterType="com.MentalhealthTestWechatWeb.entity.MusicsBean">
+    insert into Musics (
+    	Mtitle,
+    	Msinger,
+    	Mtid,
+    	Mpath,
+    	Mimg
+      )
+    values (
+        #{Mtitle,jdbcType=VARCHAR},
+        #{Msinger,jdbcType=VARCHAR},
+        #{Mtid,jdbcType=INTEGER},
+        #{Mpath,jdbcType=VARCHAR},
+        #{Mimg,jdbcType=VARCHAR}
+         )
+  </insert>
+
+	<resultMap type="com.MentalhealthTestWechatWeb.entity.MusicsBean" id="Musics">
+		<result column="Mid" jdbcType="INTEGER" property="Mid" />
+   	 	<result column="Mtitle" jdbcType="VARCHAR" property="Mtitle" />
+    	<result column="Msinger" jdbcType="VARCHAR" property="Msinger" />
+    	<result column="Mtid" jdbcType="INTEGER" property="Mtid" />
+    	<result column="Mpath" jdbcType="VARCHAR" property="Mpath" />
+    	<result column="Mimg" jdbcType="VARCHAR" property="Mimg" />
+    	
+    	<result column="Mtname" jdbcType="VARCHAR" property="Mtname" />
+	</resultMap>
+
+</mapper>
+				

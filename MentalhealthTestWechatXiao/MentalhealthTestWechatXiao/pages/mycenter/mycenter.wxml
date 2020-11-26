@@ -1,0 +1,28 @@
+<view class="mycentertop">
+  <image src="{{userImgUrl}}" class="slide-image" mode="aspectFill"/> 
+
+  <view class='right_content'>
+    <br/>
+     <text decode="{{true}}" class="mycentertext">微信昵称:&nbsp;</text>
+     <text class="mycentertext">{{usernaem}}</text>
+
+     <br/>
+      <br/>
+       <br/>
+
+     <text decode="{{true}}" class="mycentertext">所在地:&nbsp;</text>
+     <text class="mycentertext">{{userLoca}}</text>
+      
+  </view>
+
+</view>
+
+  <view class='lineColor'></view>
+
+
+  <view class='myOrder' bindtap='myInfosBtn' >
+    <!--<button open-type="getUserInfo" bindgetuserinfo="mycenterstext">编辑资料</button>-->
+    <text decode="{{true}}" class="mycenterstext">编辑资料&nbsp;</text>
+  </view>
+
+  <view class='lineColor'></view>

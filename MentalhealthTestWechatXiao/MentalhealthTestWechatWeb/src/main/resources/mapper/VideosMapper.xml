@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+				
+<mapper namespace="com.MentalhealthTestWechatWeb.mapper.VideosMapper">
+	
+	<select id="findAll" resultMap="Videos">
+		select v.*,vt.Vtname from Videos as v
+		left join videostypes as vt on vt.Vtid = v.Vtid
+	</select>
+	
+  	<select id="findVideosById" parameterType="Integer" resultMap="Videos">
+		select v.*,vt.Vtname from Videos as v
+		left join videostypes as vt on vt.Vtid = v.Vtid
+		where v.Vid=#{0} 
+	</select>
+	 
+	<select id="checkVideos" parameterType="com.MentalhealthTestWechatWeb.entity.VideosBean" resultMap="Videos">
+		select * from Videos where Vtitle=#{Vtitle} and Vtid=#{Vtid}
+	</select>
+	
+	<select id="findVideosListsByMohuTitle" parameterType="String" resultMap="Videos">
+		select v.*,vt.Vtname from Videos as v
+		left join videostypes as vt on vt.Vtid = v.Vtid
+		where v.Vtitle like #{Vtitle} 
+	</select>
+	
+	<select id="findVideosListsByVtid" parameterType="Integer" resultMap="Videos">
+		select v.*,vt.Vtname from Videos as v
+		left join videostypes as vt on vt.Vtid = v.Vtid
+		 where v.Vtid=#{0} 
+	</select>
+	
+	<delete id="deleteVideosById" parameterType="Integer">
+    	delete from videos where Vid = #{0}
+  	</delete>
+  
+  <update id="updateVideosInfo" parameterType="com.MentalhealthTestWechatWeb.entity.VideosBean">
+    update Videos
+    set Vtitle = #{Vtitle,jdbcType=VARCHAR},
+      Vperformers = #{Vperformers,jdbcType=VARCHAR},
+      Vscores = #{Vscores,jdbcType=VARCHAR},
+      Vjianjie = #{Vjianjie,jdbcType=VARCHAR},
+      Vtid = #{Vtid,jdbcType=INTEGER}
+      
+      <if test='Vperformers != null and Vperformers !=""'>
+      	,Vimg = #{Vimg,jdbcType=VARCHAR}
+      </if>
+      
+      <if test='Vpath != null and Vpath !=""'>
+      	,Vpath = #{Vpath,jdbcType=VARCHAR}
+      </if>
+      
+    where Vid = #{Vid,jdbcType=INTEGER }
+  </update>
+  
+  <insert id="insertVideosInfo" parameterType="com.MentalhealthTestWechatWeb.entity.VideosBean">
+    insert into Videos (
+    	Vtitle,
+    	Vperformers,
+    	Vscores,
+    	Vjianjie,
+    	Vtid,
+    	Vpath,
+    	Vimg
+      )
+    values (
+        #{Vtitle,jdbcType=VARCHAR},
+        #{Vperformers,jdbcType=VARCHAR},
+        #{Vscores,jdbcType=VARCHAR},
+        #{Vjianjie,jdbcType=VARCHAR},
+        #{Vtid,jdbcType=INTEGER},
+        #{Vpath,jdbcType=VARCHAR},
+        #{Vimg,jdbcType=VARCHAR}
+         )
+  </insert>
+
+	<resultMap type="com.MentalhealthTestWechatWeb.entity.VideosBean" id="Videos">
+		<result column="Vid" jdbcType="INTEGER" property="Vid" />
+   	 	<result column="Vtitle" jdbcType="VARCHAR" property="Vtitle" />
+    	<result column="Vperformers" jdbcType="VARCHAR" property="Vperformers" />
+    	<result column="Vtid" jdbcType="INTEGER" property="Vtid" />
+   	 	<result column="Vscores" jdbcType="VARCHAR" property="Vscores" />
+    	<result column="Vjianjie" jdbcType="VARCHAR" property="Vjianjie" />
+    	<result column="Vpath" jdbcType="VARCHAR" property="Vpath" />
+    	<result column="Vimg" jdbcType="VARCHAR" property="Vimg" />
+    	
+    	<result column="Vtname" jdbcType="VARCHAR" property="Vtname" />
+	</resultMap>
+
+</mapper>
+				

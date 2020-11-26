@@ -1,0 +1,9 @@
+{
+
+"navigationBarTitleText": "漫画和动画",
+"usingComponents": {
+  "br": "../../components/br/br",
+  "header": "../../components/header/header"
+}
+
+}

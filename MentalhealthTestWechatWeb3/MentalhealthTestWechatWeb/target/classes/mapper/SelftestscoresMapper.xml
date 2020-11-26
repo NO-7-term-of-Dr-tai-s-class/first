@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+				
+<mapper namespace="com.MentalhealthTestWechatWeb.mapper.SelftestscoresMapper">
+	
+	<select id="findAll" resultMap="Selftestscores">
+		select sc.*,u.Uname from selftestscores as sc 
+		left join users as u on u.Uid = sc.Ssuid
+	</select>
+	
+  	<select id="findSelftestscoresById" parameterType="Integer" resultMap="Selftestscores">
+		select * from selftestscores where Ssuid=#{0} 
+	</select>
+	 
+	<select id="checkSelftestscoresById" parameterType="Integer" resultMap="Selftestscores">
+		select * from selftestscores where Ssuid=#{0} 
+	</select>
+	
+	<delete id="deleteSelftestscoresById" parameterType="Integer">
+    	delete from selftestscores where Ssid = #{0}
+  	</delete>
+  
+  <update id="updateSelftestscoresInfo" parameterType="com.MentalhealthTestWechatWeb.entity.SelftestscoresBean">
+    update selftestscores
+    set Ssscore = #{Ssscore,jdbcType=INTEGER}
+      
+    where Ssuid = #{Ssuid,jdbcType=INTEGER }
+  </update>
+  
+  <insert id="insertSelftestscoresInfo" parameterType="com.MentalhealthTestWechatWeb.entity.SelftestscoresBean">
+    insert into selftestscores (
+    	Ssuid,
+    	Ssscore,
+    	Ssdate
+      )
+    values (
+        #{Ssuid,jdbcType=INTEGER},
+        #{Ssscore,jdbcType=INTEGER},
+        #{Ssdate,jdbcType=TIMESTAMP}
+         )
+  </insert>
+
+	<resultMap type="com.MentalhealthTestWechatWeb.entity.SelftestscoresBean" id="Selftestscores">
+		<result column="Ssid" jdbcType="INTEGER" property="Ssid" />
+		<result column="Ssuid" jdbcType="INTEGER" property="Ssuid" />
+		<result column="Ssscore" jdbcType="INTEGER" property="Ssscore" />
+		<result column="Ssdate" jdbcType="TIMESTAMP" property="Ssdate" />
+		
+   	 	<result column="Uname" jdbcType="VARCHAR" property="Uname" />
+	</resultMap>
+
+</mapper>
+				

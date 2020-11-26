@@ -1,0 +1,7 @@
+{
+  "navigationBarTitleText": "漫画动画列表",
+  "usingComponents": {
+    "br": "../../components/br/br",
+    "header": "../../components/header/header"
+  }
+}

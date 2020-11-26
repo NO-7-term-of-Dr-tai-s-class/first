@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+				
+<mapper namespace="com.MentalhealthTestWechatWeb.mapper.CartoonanimatsMapper">
+	
+	<select id="findAll" resultMap="Cartoonanimats">
+		select * from Cartoonanimats
+	</select>
+	
+  	<select id="findCartoonanimatsById" parameterType="Integer" resultMap="Cartoonanimats">
+		select * from Cartoonanimats where Cid=#{0} 
+	</select>
+	 
+	<select id="checkCartoonanimats" parameterType="com.MentalhealthTestWechatWeb.entity.CartoonanimatsBean" resultMap="Cartoonanimats">
+		select * from Cartoonanimats where Ctitle=#{Ctitle} and Cauthor=#{Cauthor} and Cjianjie=#{Cjianjie} 
+	</select>
+	
+	<select id="findCartoonanimatsListsByMohuTitle" parameterType="String" resultMap="Cartoonanimats">
+		select * from Cartoonanimats where Ctitle like #{Ctitle} 
+	</select>
+	
+	<select id="findCartoonanimatsListsByFlag" parameterType="Integer" resultMap="Cartoonanimats">
+		select * from Cartoonanimats where Cflag=#{0} 
+	</select>
+	
+	<delete id="deleteCartoonanimatsById" parameterType="Integer">
+    	delete from users where Cid = #{0}
+  	</delete>
+  
+  <update id="updateCartoonanimatsInfo" parameterType="com.MentalhealthTestWechatWeb.entity.CartoonanimatsBean">
+    update Cartoonanimats
+    set Ctitle = #{Ctitle,jdbcType=VARCHAR},
+      Cjianjie = #{Cjianjie,jdbcType=VARCHAR},
+      Cauthor = #{Cauthor,jdbcType=VARCHAR},
+      Ccont = #{Ccont,jdbcType=VARCHAR},
+      Cflag = #{Cflag,jdbcType=INTEGER}
+      
+      <if test='Cpath != null and Cpath !=""'>
+      	,Cpath = #{Cpath,jdbcType=VARCHAR}
+      </if>
+      
+      <if test='Cimg != null and Cimg !=""'>
+      	,Cimg = #{Cimg,jdbcType=VARCHAR}
+      </if>
+      
+    where Cid = #{Cid,jdbcType=INTEGER }
+  </update>
+  
+  <insert id="insertCartoonanimatsInfo" parameterType="com.MentalhealthTestWechatWeb.entity.CartoonanimatsBean">
+    insert into Cartoonanimats (
+    	Ctitle,
+    	Cdate,
+    	Cpath,
+    	Cjianjie,
+    	Cauthor,
+    	Cflag,
+    	Cimg,
+    	Ccont
+      )
+    values (
+        #{Ctitle,jdbcType=VARCHAR},
+        #{Cdate,jdbcType=TIMESTAMP},
+        #{Cpath,jdbcType=VARCHAR},
+        #{Cjianjie,jdbcType=VARCHAR},
+        #{Cauthor,jdbcType=VARCHAR},
+        #{Cflag,jdbcType=INTEGER},
+        #{Cimg,jdbcType=VARCHAR},
+        #{Ccont,jdbcType=VARCHAR}
+         )
+  </insert>
+
+	<resultMap type="com.MentalhealthTestWechatWeb.entity.CartoonanimatsBean" id="Cartoonanimats">
+		<result column="Cid" jdbcType="INTEGER" property="Cid" />
+   	 	<result column="Ctitle" jdbcType="VARCHAR" property="Ctitle" />
+    	<result column="Cdate" jdbcType="TIMESTAMP" property="Cdate" />
+    	<result column="Cpath" jdbcType="VARCHAR" property="Cpath" />
+    	<result column="Cflag" jdbcType="INTEGER" property="Cflag" />
+   	 	<result column="Cjianjie" jdbcType="VARCHAR" property="Cjianjie" />
+    	<result column="Cauthor" jdbcType="VARCHAR" property="Cauthor" />
+    	<result column="Cimg" jdbcType="VARCHAR" property="Cimg" />
+    	<result column="Ccont" jdbcType="VARCHAR" property="Ccont" />
+	</resultMap>
+
+</mapper>
+				

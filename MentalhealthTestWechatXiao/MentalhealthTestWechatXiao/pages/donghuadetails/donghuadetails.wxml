@@ -1,0 +1,21 @@
+<import src="../../wxParse/wxParse.wxml"/>
+<wxs src="../../wxs/utils.wxs" module="myutil" />
+
+<view class='contTitle'>
+ <text decode="{{true}}" class="ttext">&nbsp;名称:&nbsp;</text>
+  <text>{{list.ctitle}}</text>
+</view>
+
+<view class='contStyle'>
+ <text decode="{{true}}" class="ttext">&nbsp;作者:&nbsp;</text>
+   <text>{{list.cauthor}}</text>
+</view>
+
+<view class='contStyle'>
+ <text decode="{{true}}" class="ttext">&nbsp;简介:&nbsp;</text>
+   <text>{{list.cjianjie}}</text>
+</view>
+
+<view class='contStyle'>
+  <video src="{{imghost}}{{list.cpath}}" ></video>
+</view>

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+				
+<mapper namespace="com.MentalhealthTestWechatWeb.mapper.WechatsMapper">
+	
+	<select id="findAll" resultMap="Wechats">
+		select we.*,u.Unicheng from Wechats as we 
+		left join users as u on u.Uid = we.Wuid
+	</select>
+	
+	<select id="checkWechats" parameterType="com.MentalhealthTestWechatWeb.entity.WechatsBean" resultMap="Wechats">
+		select * from Wechats where Wuid = #{Wuid} and Wcont = #{Wcont} 
+	</select>
+	
+	<delete id="deleteWechatsById" parameterType="Integer">
+    	delete from Wechats where Mtid = #{0}
+  	</delete>
+   
+  <insert id="insertWechatsInfo" parameterType="com.MentalhealthTestWechatWeb.entity.WechatsBean">
+    insert into Wechats (
+    	Wuid,
+    	Wcont,
+    	Wdate
+      )
+    values (
+        #{Wuid,jdbcType=INTEGER},
+        #{Wcont,jdbcType=VARCHAR},
+        #{Wdate,jdbcType=TIMESTAMP}
+         )
+  </insert>
+
+	<resultMap type="com.MentalhealthTestWechatWeb.entity.WechatsBean" id="Wechats">
+		<result column="Wid" jdbcType="INTEGER" property="Wid" />
+		<result column="Wuid" jdbcType="INTEGER" property="Wuid" />
+   	 	<result column="Wcont" jdbcType="VARCHAR" property="Wcont" />
+   	 	<result column="Wdate" jdbcType="TIMESTAMP" property="Wdate" />
+   	 	
+   	 	<result column="Unicheng" jdbcType="VARCHAR" property="Unicheng" />
+	</resultMap>
+
+</mapper>
+				

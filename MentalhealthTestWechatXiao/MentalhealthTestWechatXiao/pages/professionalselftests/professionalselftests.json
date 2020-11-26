@@ -1,0 +1,9 @@
+{
+
+"navigationBarTitleText": "心理健康自测",
+"usingComponents": {
+  "br": "../../components/br/br",
+  "header": "../../components/header/header"
+}
+
+}
